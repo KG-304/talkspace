@@ -42,8 +42,6 @@ const Login = () => {
     if (em.test(email)) {
       context.updateEmail(email);
       context.updateBearer(getBearer(email));
-      setError(false);
-      setModal(false);
     } else {
       setError(true);
     }
