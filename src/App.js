@@ -1,15 +1,13 @@
 import "./App.scss";
 import Header from "./atoms/header";
 import Login from "./atoms/login";
+import RouterBoss from "./router/routerBoss";
 import GlobalState from "./state_manage/globalState";
 
 function App() {
   return (
     <GlobalState>
-      <div className="App">
-        <Header />
-        <Login />
-      </div>
+      <RouterBoss />
     </GlobalState>
   );
 }
