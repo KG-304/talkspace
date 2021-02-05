@@ -32,6 +32,67 @@
   color: #61dafb;
 }
 
+table {
+  // position in middle of screen
+  margin: 5px auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  .vertical-line {
+    //provide borders vertically create board.
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+  }
+  .horizontal-line {
+    //provide borders horizontally create board.
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+  }
+}
+
+td,
+th {
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  position: relative;
+  outline: 0;
+}
+
+tbody tr:hover {
+  background-color: lightgray;
+}
+
+td:hover::after,
+thead th:not(:empty):hover::after,
+td:focus::after,
+th:not(:empty):focus::after {
+  content: "";
+  height: 10000px;
+  left: 0;
+  position: absolute;
+  top: -500px;
+  width: 100%;
+  z-index: -10000;
+}
+
+td:hover::after,
+th:hover::after {
+  background-color: lightgray;
+}
+
+td:focus::after,
+th:focus::after {
+  background-color: lightblue;
+}
+
+.userX {
+  width: 100%;
+  height: 100%;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
