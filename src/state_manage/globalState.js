@@ -4,8 +4,8 @@ import { UserReducer } from "./userReducer.js";
 
 const GlobalState = props => {
   const user = {
-    bearer: "1234",
-    email: "test@test.com",
+    bearer: "",
+    email: "",
   };
 
   const [userState, dispatch] = useReducer(UserReducer, user);
