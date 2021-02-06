@@ -27,9 +27,9 @@ const useStyles = makeStyles(theme => ({
 
 const modalStyle = {
   position: "fixed",
-  top: "25%",
-  left: "41%",
-  marginLeft: "-100px",
+  top: "40%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
   height: "30vh",
   width: "30vw",
   borderRadius: "10px",
@@ -50,8 +50,7 @@ const Login = () => {
   const checkEmail = () => {
     let em = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (em.test(email)) {
-      let callBear = getBearer(email);
-      callBear.then(function (result) {
+      getBearer(email).then(function (result) {
         //Have to call .then() bc otherwise you promise will always be pending.
         context.updateBearer(result);
       });
