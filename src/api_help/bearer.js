@@ -7,5 +7,5 @@ export const getBearer = async email => {
       { email: email }
     )
     .then(res => res.data.token)
-    .catch(console.log("Sorry an error occurred."));
+    .catch(error => console.log(error));
 };
