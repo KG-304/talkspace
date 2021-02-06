@@ -1,20 +1,22 @@
 import React, { useContext } from "react";
 import UserContext from "../state_manage/userContext";
+import EmailIcon from "@material-ui/icons/Email";
 
 const Header = () => {
   const context = useContext(UserContext);
   return (
-    <div className="App">
-      <div
-        style={{
-          position: "absolute",
-          height: "5vh",
-          width: "100%",
-          backgroundColor: "blue",
-        }}
-      >
-        You are logged in as: {context.user.email}
-      </div>
+    <div
+      style={{
+        position: "absolute",
+        height: "50px",
+        top: "0",
+        width: "100%",
+        backgroundColor: "blue",
+        textAlign: "right",
+      }}
+    >
+      <EmailIcon />
+      You are logged in as: {context.user.email}
     </div>
   );
 };
