@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
-import { Modal, Button, Fade } from "@material-ui/core";
+import { Modal, Button, Fade, StepButton } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import UserContext from "../state_manage/userContext";
-import { getBearer } from "../api_help/bearer";
+import { getBearer } from "../api_help/api";
 import { Backdrop } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 
@@ -40,7 +40,6 @@ const modalStyle = {
 };
 
 const Login = () => {
-  const [modal, setModal] = useState(true);
   const [error, setError] = useState(false);
   const [email, setEmail] = useState("");
   const context = useContext(UserContext);
@@ -64,7 +63,7 @@ const Login = () => {
   return (
     <Modal
       style={modalStyle}
-      open={modal}
+      open={true}
       BackdropComponent={Backdrop}
       BackdropProps={{
         classes: {
@@ -72,7 +71,7 @@ const Login = () => {
         },
       }}
     >
-      <Fade in={modal}>
+      <Fade in={true}>
         <div className="modal-container">
           <form className={classes.root} noValidate autoComplete="off">
             <span style={{ marginBottom: "10px" }}>
