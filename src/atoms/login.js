@@ -47,10 +47,9 @@ const Login = () => {
   const history = useHistory();
 
   const checkEmail = () => {
-    let em = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let em = /\S+@\S+\.\S+/;
     if (em.test(email)) {
       getBearer(email).then(function (result) {
-        //Have to call .then() bc otherwise you promise will always be pending.
         context.updateBearer(result);
       });
       context.updateEmail(email);
