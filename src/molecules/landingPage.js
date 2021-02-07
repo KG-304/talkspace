@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../atoms/header";
 import Login from "../atoms/login";
 
 const LandingPage = () => {
