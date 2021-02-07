@@ -17,9 +17,15 @@ export const checkBoard = board => {
 };
 
 const checkRow = r => {
+  let msg = "";
   for (let i = 0; i < r.length - 1; i++) {
     if (r[i + 1] === r[i] && r[i + 2] === r[i] && r[i] !== "") {
-      window.alert(`Player ${r[i]} wins.`);
+      if (r[i] === "X" && r[i] !== "") {
+        msg = "Congratulations you win!";
+      } else {
+        msg = "The opponent wins please try again.";
+      }
+      window.alert(msg);
       return true;
     } else {
       return false;
@@ -28,6 +34,7 @@ const checkRow = r => {
 };
 
 const checkCol = board => {
+  let msg = "";
   for (let i = 0; i < board.length; i++) {
     for (let j = 0; j < board[i].length - 2; j++) {
       if (
@@ -35,7 +42,12 @@ const checkCol = board => {
         board[j + 2][i] === board[j][i] &&
         board[j][i] !== ""
       ) {
-        window.alert(`Player ${board[j][i]} wins!`);
+        if (board[j][i] === "X" && board[j][i] !== "") {
+          msg = "Congratulations you win!";
+        } else {
+          msg = "The opponent wins please try again.";
+        }
+        window.alert(msg);
         return true;
       } else {
         return false;
@@ -45,13 +57,19 @@ const checkCol = board => {
 };
 
 const checkDiagLR = board => {
+  let msg = "";
   for (let i = 0; i < board.length - 2; i++) {
     if (
       board[i][i] === board[i + 1][i + 1] &&
       board[i + 2][i + 2] === board[i][i] &&
       board[i][i] !== ""
     ) {
-      window.alert(`Player ${board[i][i]} wins!`);
+      if (board[i][i] === "X" && board[i][i] !== "") {
+        msg = "Congratulations you win!";
+      } else {
+        msg = "The opponent wins please try again.";
+      }
+      window.alert(msg);
       return true;
     } else {
       return false;
@@ -60,13 +78,19 @@ const checkDiagLR = board => {
 };
 
 const checkDiagRL = board => {
+  let msg = "";
   for (let i = 0; i < board.length - 2; i++) {
     if (
       board[i][i + 2] === board[i + 1][i + 1] &&
       board[i + 2][i] === board[i][i + 2] &&
       board[i][i + 2] !== ""
     ) {
-      window.alert(`Player ${board[i][i + 2]} wins!`);
+      if (board[i][i + 2] === "X" && board[i][i + 2] !== "") {
+        msg = "Congratulations you win!";
+      } else {
+        msg = "The opponent wins, please try again.";
+      }
+      window.alert(msg);
       return true;
     } else {
       return false;
