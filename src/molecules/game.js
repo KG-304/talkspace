@@ -46,7 +46,11 @@ const Game = () => {
       getBoard(copy, context.user.bearer).then(function (result) {
         if (result === undefined) {
           setFinish(true);
-          setBoard(["", "", ""], ["", "", ""], ["", "", ""]);
+          setBoard([
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""],
+          ]);
         } else {
           setBoard(result);
           checkBoard(result);
