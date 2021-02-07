@@ -11,13 +11,16 @@ export const checkBoard = board => {
     checkDiagRL(board)
   ) {
     return true;
-  } else return false;
+  } else {
+    return false;
+  }
 };
 
 const checkRow = r => {
   for (let i = 0; i < r.length - 1; i++) {
     if (r[i + 1] === r[i] && r[i + 2] === r[i] && r[i] !== "") {
       window.alert(`Player ${r[i]} wins.`);
+      return true;
     } else {
       return false;
     }
@@ -33,6 +36,9 @@ const checkCol = board => {
         board[j][i] !== ""
       ) {
         window.alert(`Player ${board[j][i]} wins!`);
+        return true;
+      } else {
+        return false;
       }
     }
   }
@@ -46,6 +52,9 @@ const checkDiagLR = board => {
       board[i][i] !== ""
     ) {
       window.alert(`Player ${board[i][i]} wins!`);
+      return true;
+    } else {
+      return false;
     }
   }
 };
@@ -58,6 +67,9 @@ const checkDiagRL = board => {
       board[i][i + 2] !== ""
     ) {
       window.alert(`Player ${board[i][i + 2]} wins!`);
+      return true;
+    } else {
+      return false;
     }
   }
 };
