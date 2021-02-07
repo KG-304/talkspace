@@ -20,9 +20,8 @@ const modalStyle = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  height: "10vh",
-  width: "10vw",
-  borderRadius: "10px",
+  height: "5vh",
+  width: "auto",
   outline: "none",
   textAlign: "center",
   backgroundColor: "green",
@@ -52,9 +51,12 @@ const Game = () => {
             ["", "", ""],
           ]);
           setFinish(false);
+          window.alert("It's a tie");
+        } else if (checkBoard(result)) {
+          setFinish(false);
+          window.alert("Someone won.");
         } else {
           setBoard(result);
-          checkBoard(result);
           setFinish(false);
         }
       });
@@ -81,7 +83,7 @@ const Game = () => {
               fontSize: "20pt",
             }}
           >
-            Making move.
+            Making move...
           </span>
         </Fade>
       </Modal>
