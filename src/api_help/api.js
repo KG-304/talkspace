@@ -7,7 +7,11 @@ export const getBearer = async email => {
       { email: email }
     )
     .then(res => res.data.token)
-    .catch(error => console.log(error));
+    .catch(error =>
+      window.alert(
+        "Sorry an error occurred with the request. Please wait a moment and try again."
+      )
+    );
 };
 
 export const getBoard = async (board, bearer) => {
@@ -21,5 +25,9 @@ export const getBoard = async (board, bearer) => {
       config
     )
     .then(res => res.data.board)
-    .catch(error => console.log(error));
+    .catch(error =>
+      window.alert(
+        "Sorry an error occurred with the request. Please wait a moment and try again."
+      )
+    );
 };
