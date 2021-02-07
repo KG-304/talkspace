@@ -13,13 +13,25 @@
   }
 }
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.header {
+  position: absolute;
+  height: 50px;
+  top: 0;
+  width: 100%;
+  text-align: right;
+  border: solid 1px black;
+  .log-out {
+    float: left;
+    border-bottom: solid 1px blue;
+    color: blue;
+    cursor: pointer;
+    margin: 10px 0px 0px 10px;
+  }
+  .icon {
+    position: relative;
+    top: 7px;
+    padding-right: 10px;
+  }
 }
 
 .modal-container {
@@ -59,6 +71,7 @@ th {
   padding: 10px;
   position: relative;
   outline: 0;
+  text-align: center;
 }
 
 tbody tr:hover {
@@ -86,12 +99,6 @@ th:hover::after {
 td:focus::after,
 th:focus::after {
   background-color: lightblue;
-}
-
-.userX {
-  width: 100%;
-  height: 100%;
-  color: "blue";
 }
 
 @keyframes App-logo-spin {
