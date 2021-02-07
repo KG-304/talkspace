@@ -3,7 +3,7 @@ import Header from "../atoms/header";
 import { getBoard } from "../api_help/api";
 import UserContext from "../state_manage/userContext";
 import Move from "../atoms/move";
-import { Modal, Button } from "@material-ui/core";
+import { Modal, Button, Fade } from "@material-ui/core";
 import ReplayIcon from "@material-ui/icons/Replay";
 import { checkBoard } from "../api_help/checkBoard";
 
@@ -17,15 +17,15 @@ const resetStyle = {
 
 const modalStyle = {
   position: "fixed",
-  top: "40%",
+  top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
   height: "10vh",
-  width: "40vw",
+  width: "10vw",
   borderRadius: "10px",
   outline: "none",
-  background: "white",
   textAlign: "center",
+  backgroundColor: "green",
 };
 
 //implement useEffect api for when board changes make API call//
@@ -43,17 +43,19 @@ const Game = () => {
     let copy = [...board];
     if (copy[row][col] !== "O" && copy[row][col] !== "X") {
       copy[row][col] = "X";
+      setFinish(true);
       getBoard(copy, context.user.bearer).then(function (result) {
         if (result === undefined) {
-          setFinish(true);
           setBoard([
             ["", "", ""],
             ["", "", ""],
             ["", "", ""],
           ]);
+          setFinish(false);
         } else {
           setBoard(result);
           checkBoard(result);
+          setFinish(false);
         }
       });
     } else {
@@ -63,6 +65,26 @@ const Game = () => {
 
   return (
     <>
+      <Modal open={finish} style={modalStyle} onClose={() => setFinish(false)}>
+        <Fade
+          style={{
+            height: "100%",
+            width: "100%",
+            outline: "none",
+          }}
+          in={finish}
+        >
+          <span
+            style={{
+              color: "white",
+              padding: "20px 0px 0px 0px",
+              fontSize: "20pt",
+            }}
+          >
+            Making move.
+          </span>
+        </Fade>
+      </Modal>
       <Header />
       <Button
         style={resetStyle}
@@ -76,9 +98,6 @@ const Game = () => {
       >
         <ReplayIcon style={{ height: "200px", width: "200px" }} />
       </Button>
-      <Modal open={finish} style={modalStyle} onClose={() => setFinish(false)}>
-        <span>Loading....</span>
-      </Modal>
       <table>
         <tbody>
           <tr>
