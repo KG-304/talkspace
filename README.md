@@ -31,3 +31,9 @@ Material-UI: Is an approach that really makes it easy for the developer to focus
    2c. A more offensive approach, would be quite similar to 2b. with the exception of looking for X's instead of the opponents O's.
 
 2. Trade-offs: Had I spent a little more time with styling, I wouldn't have window.alert's at all. I would utilize the Modal from material-ui to show win, loss, or draw. I was quite a bit more focused on the board checking than the styling of showing winning/losing/draw. I would definitely change that.
+
+### How to run
+
+1. clone repository, from master branch.
+2. npm install or yarn.
+3. npm run start.
