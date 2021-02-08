@@ -6,7 +6,7 @@ I have been using the atomic design principle in most of my react apps. I find i
 
 Generally speaking, smaller components with less logic would be considered atoms. Larger components with more logic and atom components within them, are molecules. Larger components with Molecules within them would be considered Organisms, etc, etc.
 
-                                             Ex. Atoms -> Molecules -> Organisms -> Templates -> Pages
+                                     Ex. Atoms -> Molecules -> Organisms -> Templates -> Pages
 
 Atomic design principles link: https://codeburst.io/atomic-design-with-react-e7aea8152957
 
