@@ -1,4 +1,4 @@
-# Tic Tac Toe App, Karl Gall
+# Tic Tac Toe App
 
 ### Basic Design principles
 
